@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>Prime numbers Application</title>
+	<meta name="description" content="Opis w Google" />
+	<meta name="keywords" content="słowa, kluczowe, wypisane, po, porzecinku" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="header">
+        <h1 class="header_title"> Prime numbers Application </h1>
+    </div>
+    <div class="info">
+        <h2 class="show_info">Program sprawdzi czy istnieją liczby pierwsze mniejsze od podanej przez Ciebie:</h2>
+    </div>
+    <div class="input_nmb">
+        <form action="/numbers" method="POST">
+          <input type="text" name="prime_number">
+            <input type="submit" value="Sprawdź" name="check">
+        </form>
+    </div>
+
+    <div class="info">
+        <h2 class="show_info">Poszukiwane liczby pierwsze mniejsze od {{ your_number }}:</h2>
+    </div>
+
+    <div class="info">
+        <h2 class="show_info">{{ prime_numbers }}</h2>
+    </div>
+</body>
+</html>
