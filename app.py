@@ -6,25 +6,30 @@ app = Flask(__name__)
 def home():
     return render_template('home.html')
 
-@app.route("/echo", methods=['POST'])
-def echo():
-    y = int(request.form['prime_number'])
-    lista = list(range(2, y + 1))
-    your_number=y
-    i = y - 1
-    while y > 1:
-        while i > 1:
-            wynik = y / i  # Or you can use: wynik = y % i     ##
-            if wynik in lista:  # if wynik == 0:                    ##
-                lista.remove(y)
-                break
-            i -= 1
-        y -= 1
+@app.route("/numbers", methods=['POST'])
+def numbers():
+    yy = (request.form['prime_number'])
+    if yy.isdigit():
+        y=int(yy)
+        lista = list(range(2, y + 1))
+        your_number=y
         i = y - 1
-    x = ""
-    for cyfra in lista:
-        x = x + str(cyfra) + ", "
-    return render_template("home.html", prime_numbers=x, your_number=your_number)
+        while y > 1:
+            while i > 1:
+                wynik = y / i  # Or you can use: wynik = y % i     ##
+                if wynik in lista:  # if wynik == 0:                    ##
+                    lista.remove(y)
+                    break
+                i -= 1
+            y -= 1
+            i = y - 1
+        xx = ""
+        for cyfra in lista:
+            xx = xx + str(cyfra) + ", "
+        x=xx[0:-2]
+        return render_template("prime_numbers.html", prime_numbers=x, your_number=your_number)
+    else:
+        return render_template('prime_wrong.html')
 
 if __name__=="__main__":
     app.run(debug=True)
