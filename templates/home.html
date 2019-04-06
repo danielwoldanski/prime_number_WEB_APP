@@ -17,18 +17,10 @@
         <h2 class="show_info">Program sprawdzi czy istnieją liczby pierwsze mniejsze od podanej przez Ciebie:</h2>
     </div>
     <div class="input_nmb">
-        <form action="/echo" method="POST">
+        <form action="/numbers" method="POST">
           <input type="text" name="prime_number">
             <input type="submit" value="Sprawdź" name="check">
         </form>
-    </div>
-
-    <div class="info">
-        <h2 class="show_info">Poszukiwane liczby pierwsze mniejsze od {{ your_number }}:</h2>
-    </div>
-
-    <div class="info">
-        <h2 class="show_info">{{ prime_numbers }}</h2>
     </div>
 </body>
 </html>
